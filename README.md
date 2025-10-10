@@ -6,8 +6,15 @@
 - 🛡️ **Damage Capping:** Caps all damage taken to 1 point to reduce difficulty.
 - 🧭 **Compass Always Visible:** Keeps your compass icon visible on the map at all times for easy orientation.
 - ⚔️ **Double dealed Damage:** Every hit with any weapon, tool or hability dealed by hornet is doubled.
+- 🪑 **Silk regeneration on benches:** Silk regenerates to max when resting on benches.
 
 This mod leverages **BepInEx** and **Harmony** for seamless integration into the game.
+
+---
+
+## ✅ Download
+
+Currently downloadable here -> [EasyMod on Nexus Mods](https://www.nexusmods.com/hollowknightsilksong/mods/588)
 
 ---
 
@@ -29,7 +36,6 @@ To change resource multipliers or damage limits, modify the source code values a
 
 ## ⌛ Future implementations
 
-- 🪑 Silk auto-regeneration when resting on benches
 - 🎮 In-game configurable options
   
 ---

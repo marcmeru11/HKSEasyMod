@@ -91,6 +91,24 @@ namespace HKSTestMod
         }
 
 
+
+        [HarmonyPatch(typeof(RestBenchHelper), "SetOnBench")]
+        [HarmonyPostfix]
+        public static void SetOnBenchPostfix(bool onBench)
+        {
+            if (onBench)
+            {
+                var playerData = GameManager.instance.playerData;
+                HeroController controll = HeroController.instance;
+                int missingSilk = playerData.CurrentSilkMax - playerData.silk;
+                if (missingSilk > 0)
+                {
+                    controll.AddSilk(missingSilk, false);
+
+                }
+            }
+        }
+
     }
 }
 
