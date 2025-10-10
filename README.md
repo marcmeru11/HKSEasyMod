@@ -1,5 +1,9 @@
 # 🪡 HKSEasyMod 🪡
 
+## ℹ️ Description
+
+Hollow Knight: Silksong mod that makes the game easier. Developed for people that are finding the game difficult and need a little help.
+
 ## ✨ Features
 
 - 💰 **Double Resources:** Automatically doubles Geo, Shards, and Silk pickups.
@@ -36,7 +40,8 @@ To change resource multipliers or damage limits, modify the source code values a
 
 ## ⌛ Future implementations
 
-- 🎮 In-game configurable options
+- 💰 Auto Rosaries and Shards collect
+- 🩷 Pink hornet's Cloak
   
 ---
 
