@@ -81,6 +81,16 @@ namespace HKSTestMod
                 displayingCompassField.SetValue(__instance, true);
             }
         }
+
+        // Prefix patch for HealthManager.TakeDamage to double the damage dealt by the player
+        [HarmonyPatch(typeof(HealthManager), "TakeDamage")]
+        [HarmonyPrefix]
+        private static void DoubleDamagePrefix(ref HitInstance hitInstance)
+        {
+            hitInstance.DamageDealt = (int)(hitInstance.DamageDealt * damageMultiplier);
+        }
+
+
     }
 }
 

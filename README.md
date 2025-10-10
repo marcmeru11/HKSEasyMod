@@ -5,6 +5,7 @@
 - 💰 **Double Resources:** Automatically doubles Geo, Shards, and Silk pickups.
 - 🛡️ **Damage Capping:** Caps all damage taken to 1 point to reduce difficulty.
 - 🧭 **Compass Always Visible:** Keeps your compass icon visible on the map at all times for easy orientation.
+- ⚔️ **Double dealed Damage:** Every hit with any weapon, tool or hability dealed by hornet is doubled.
 
 This mod leverages **BepInEx** and **Harmony** for seamless integration into the game.
 
@@ -28,7 +29,6 @@ To change resource multipliers or damage limits, modify the source code values a
 
 ## ⌛ Future implementations
 
-- ⚔️ Weapon damage increase
 - 🪑 Silk auto-regeneration when resting on benches
 - 🎮 In-game configurable options
   
