@@ -91,7 +91,7 @@ namespace HKSTestMod
         }
 
 
-
+        // Postfix patch for RestBenchHelper.SetOnBench to give player full silk when resting on a bench
         [HarmonyPatch(typeof(RestBenchHelper), "SetOnBench")]
         [HarmonyPostfix]
         public static void SetOnBenchPostfix(bool onBench)
@@ -107,6 +107,25 @@ namespace HKSTestMod
 
                 }
             }
+        }
+
+        // Postfix patch for CurrencyObjectBase.MagnetToolIsEquipped to make rosaries and shards attracted without magnet tool
+        [HarmonyPatch(typeof(CurrencyObjectBase), "MagnetToolIsEquipped")]
+        [HarmonyPostfix]
+        public static void MagnetToolIsEquipped_Postfix(CurrencyObjectBase __instance, ref bool __result)
+        {
+            if (IsRosaryOrShard(__instance))
+            {
+                __result = true;
+            }
+        }
+
+        // Check type name to identify rosaries (Inner name: geo) or shards
+        private static bool IsRosaryOrShard(object o)
+        {
+            if (o == null) return false;
+            string name = o.GetType().Name;
+            return name.Contains("Rosary") || name.Contains("Shard") || name.Contains("Geo");
         }
 
     }

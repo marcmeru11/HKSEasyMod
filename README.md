@@ -11,6 +11,7 @@ Hollow Knight: Silksong mod that makes the game easier. Developed for people tha
 - 🧭 **Compass Always Visible:** Keeps your compass icon visible on the map at all times for easy orientation.
 - ⚔️ **Double dealed Damage:** Every hit with any weapon, tool or hability dealed by hornet is doubled.
 - 🪑 **Silk regeneration on benches:** Silk regenerates to max when resting on benches.
+- 💰 **Auto Rosaries and Shards collect:** Rosaries and Shards are attracted without magnet tool equipped.
 
 This mod leverages **BepInEx** and **Harmony** for seamless integration into the game.
 
@@ -40,7 +41,6 @@ To change resource multipliers or damage limits, modify the source code values a
 
 ## ⌛ Future implementations
 
-- 💰 Auto Rosaries and Shards collect
   
 ---
 
