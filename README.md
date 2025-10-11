@@ -41,7 +41,6 @@ To change resource multipliers or damage limits, modify the source code values a
 ## ⌛ Future implementations
 
 - 💰 Auto Rosaries and Shards collect
-- 🩷 Pink hornet's Cloak
   
 ---
 
