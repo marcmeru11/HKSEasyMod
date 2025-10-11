@@ -128,6 +128,50 @@ namespace HKSTestMod
             return name.Contains("Rosary") || name.Contains("Shard") || name.Contains("Geo");
         }
 
+        // Postfix patch para CurrencyObjectBase.OnEnable: asigna el visual effect magnético a rosarios y shards
+        [HarmonyPatch(typeof(CurrencyObjectBase), "OnEnable")]
+        [HarmonyPostfix]
+        public static void CurrencyObjectBase_OnEnable_Postfix(CurrencyObjectBase __instance)
+        {
+            if (__instance == null) return;
+            string typeName = __instance.GetType().Name;
+            // Solo para shards y rosarios
+            if (!(typeName.Contains("Rosary") || typeName.Contains("Shard"))) return;
+
+            var magnetEffectField = typeof(CurrencyObjectBase).GetField("magnetEffect", BindingFlags.Instance | BindingFlags.NonPublic);
+            var hasMagnetEffectField = typeof(CurrencyObjectBase).GetField("hasMagnetEffect", BindingFlags.Instance | BindingFlags.NonPublic);
+            var effect = magnetEffectField?.GetValue(__instance) as GameObject;
+            if (effect != null) return; // Ya tiene el efecto
+
+            // Busca el template de rosary_magnet_effect solo una vez
+            if (_magnetTemplate == null)
+            {
+                foreach (Transform t in Resources.FindObjectsOfTypeAll<Transform>())
+                {
+                    if (t != null && t.name == "rosary_magnet_effect")
+                    {
+                        _magnetTemplate = t.gameObject;
+                        break;
+                    }
+                }
+                if (_magnetTemplate == null) return; // Si no existe, no hagas nada
+            }
+
+            // Instancia visual magnet effect para el objeto
+            GameObject visual = Object.Instantiate(_magnetTemplate, ((Component)__instance).transform);
+            visual.name = "rosary_magnet_effect (shard/rosary)";
+            visual.transform.localPosition = Vector3.zero;
+            visual.transform.localRotation = Quaternion.identity;
+            visual.transform.localScale = _magnetTemplate.transform.localScale;
+            visual.SetActive(false);
+
+            magnetEffectField?.SetValue(__instance, visual);
+            hasMagnetEffectField?.SetValue(__instance, true);
+        }
+
+        // Private static para guardar el template visual
+        private static GameObject _magnetTemplate;
+
     }
 }
 
